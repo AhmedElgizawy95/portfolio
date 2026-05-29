@@ -496,7 +496,8 @@ h2.section-title em{
 }
 .contact-layout{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr;
+  max-width:600px;
   gap:4rem;
   align-items:start;
 }
@@ -521,70 +522,22 @@ h2.section-title em{
 .cm-icon{font-size:1.1rem;width:28px;text-align:center;}
 .cm-info strong{display:block;font-size:.82rem;color:var(--head);font-weight:600;margin-bottom:.1rem;}
 .cm-info span{font-family:var(--font-mono);font-size:.72rem;color:var(--subtle);}
-.contact-form-box{
-  background:var(--bg3);
-  border:1px solid var(--line);
-  border-radius:4px;
-  padding:2rem;
-  position:relative;
-}
-.contact-form-box::before{
-  content:'';
-  position:absolute;top:0;left:0;right:0;
-  height:2px;
-  background:linear-gradient(90deg, var(--teal), transparent);
-}
-.contact-form-box h3{
-  font-size:.9rem;
-  font-weight:700;
-  color:var(--head);
-  margin-bottom:.3rem;
-}
+
+
+
 .contact-form-box p{
   font-size:.78rem;
   color:var(--subtle);
   margin-bottom:1.5rem;
   font-family:var(--font-mono);
 }
-.cf-row{margin-bottom:1rem;}
-.cf-row label{
-  display:block;
-  font-family:var(--font-mono);
-  font-size:.65rem;
-  color:var(--subtle);
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  margin-bottom:.4rem;
-}
-.cf-row input,.cf-row textarea,.cf-row select{
-  width:100%;
-  background:var(--bg2);
-  border:1px solid var(--line);
-  border-radius:2px;
-  padding:.65rem .8rem;
-  color:var(--head);
-  font-family:var(--font-mono);
-  font-size:.8rem;
-  outline:none;
-  transition:border-color .2s;
-  resize:none;
-}
-.cf-row input:focus,.cf-row textarea:focus,.cf-row select:focus{border-color:var(--teal);}
-.cf-row select option{background:var(--bg2);}
-.cf-submit{
-  width:100%;
-  background:var(--teal);
-  color:var(--bg);
-  border:none;
-  padding:.75rem;
-  font-family:var(--font-mono);
-  font-size:.78rem;
-  letter-spacing:.1em;
-  border-radius:2px;
-  cursor:pointer;
-  transition:background .2s, transform .2s;
-}
-.cf-submit:hover{background:var(--teal2);transform:translateY(-1px);}
+
+
+
+
+
+
+
 
 /* ── PAYONEER NOTE ── */
 .payoneer-note{
@@ -647,7 +600,6 @@ footer{
   .hero-right{justify-content:flex-start;margin-top:2rem;}
   section{padding:3.5rem 1.5rem;}
   .skills-layout{grid-template-columns:1fr;}
-  .contact-layout{grid-template-columns:1fr;}
   footer{padding:1.5rem;}
 }
 @media(max-width:600px){
@@ -1124,7 +1076,7 @@ footer{
     <div class="contact-layout">
       <div class="contact-intro">
         <p>I'm available for <strong>remote freelance contracts</strong> with European clients. Whether you need a .NET backend, an AI integration, a computer vision system, or a data pipeline — let's talk.</p>
-        <p>I typically respond within <strong>24 hours</strong>. Prefer WhatsApp for fast communication, email for project briefs.</p>
+        <p>I typically respond within <strong>24 hours</strong>. Prefer WhatsApp for fast communication, or drop me an email.</p>
 
         <div class="contact-methods">
           <a href="https://wa.me/201208904160" target="_blank" class="contact-method">
@@ -1163,36 +1115,6 @@ footer{
         </div>
       </div>
 
-      <div class="contact-form-box">
-        <h3>Send a project brief</h3>
-        <p>// describe your project and I'll respond within 24h</p>
-        <div class="cf-row">
-          <label>Your name</label>
-          <input type="text" placeholder="Jane Schmidt"/>
-        </div>
-        <div class="cf-row">
-          <label>Email address</label>
-          <input type="email" placeholder="jane@company.com"/>
-        </div>
-        <div class="cf-row">
-          <label>Service needed</label>
-          <select>
-            <option value="">— Select a service —</option>
-            <option>.NET Backend / API Development</option>
-            <option>AI Integration / LLM Application</option>
-            <option>Computer Vision</option>
-            <option>NLP / Sentiment Analysis</option>
-            <option>Data Analysis</option>
-            <option>Azure Cloud / DevOps</option>
-            <option>Other / Full-stack</option>
-          </select>
-        </div>
-        <div class="cf-row">
-          <label>Project description</label>
-          <textarea rows="4" placeholder="Describe your project, requirements, and timeline..."></textarea>
-        </div>
-        <button class="cf-submit" onclick="handleSubmit()">SEND MESSAGE →</button>
-      </div>
     </div>
   </div>
 </section>
@@ -1240,18 +1162,6 @@ const barObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 bars.forEach(b => barObserver.observe(b));
 
-// Form submit
-function handleSubmit() {
-  const btn = document.querySelector('.cf-submit');
-  btn.textContent = 'MESSAGE SENT ✓';
-  btn.style.background = '#059669';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'SEND MESSAGE →';
-    btn.style.background = '';
-    btn.disabled = false;
-  }, 3000);
-}
 
 // ── TYPEWRITER ──────────────────────────────────────────────────
 const phrases = [
